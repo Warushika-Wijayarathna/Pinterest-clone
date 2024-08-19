@@ -19,6 +19,11 @@ function App() {
     
     allIcon.forEach((n) => n.addEventListener("click", setMenuActive));
 
+    const personIcon = document.querySelector('.menuContainer .subMenu > div:first-child .iconContainer');
+    if (personIcon) {
+      personIcon.classList.add("active");
+    }
+
   }, []);
 
   const handleSearchChange = (e) => {
@@ -37,6 +42,7 @@ function App() {
         <img src="https://firebasestorage.googleapis.com/v0/b/printerest-clone-773aa.appspot.com/o/pintrestlogo.png?alt=media&token=ad9c09a0-d8cf-4cb0-ab7f-56081414c78b" 
         className="logo" 
         alt="logo" 
+        onClick={() => window.location.reload()}
         />
 
         <div className="subMenu"> 
@@ -63,7 +69,6 @@ function App() {
           searchQuery={searchQuery}
           handleSearchChange={handleSearchChange}
         />
-        
         <div className="mainContainer">
           {
             filteredData && filteredData.map((data) => 
