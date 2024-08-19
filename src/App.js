@@ -3,6 +3,7 @@ import './App.css';
 import { Add, Chat, FavoriteRounded, Notifications, Person, QuestionMark } from '@mui/icons-material';
 import { useEffect } from 'react';
 import Pin from './Components/Pin';
+import Data from './Components/Data';
 
 function App() {
   useEffect(() => {
@@ -54,28 +55,16 @@ function App() {
           </div>
         </div>
         <div className="mainContainer">
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          <Pin pinSize={"small"}/>
-          <Pin pinSize={"medium"}/>
-          <Pin pinSize={"large"}/>
-          
+          {
+            Data && Data.map((data) => 
+              <Pin 
+                key={data.id} 
+                pinSize={data.size}
+                imgSrc={data.imgSrc}
+                name={data.name}
+                link={data.link}
+                />
+          )}
         </div>
       </main>
     </div>
