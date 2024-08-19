@@ -1,11 +1,14 @@
 import MenuContainer from './Components/MenuContainer';
 import './App.css';
 import { Add, Chat, FavoriteRounded, Notifications, Person, QuestionMark } from '@mui/icons-material';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Pin from './Components/Pin';
 import Data from './Components/Data';
+import SearchBar from './Components/SearchBar';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
     const allIcon = document.querySelectorAll('.iconContainer');
 
@@ -17,6 +20,15 @@ function App() {
     allIcon.forEach((n) => n.addEventListener("click", setMenuActive));
 
   }, []);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  }
+
+  const filteredData = Data.filter((data) => 
+    data.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
       
 
   return (
@@ -47,16 +59,14 @@ function App() {
       </div>
       
       <main>
-        <div className="searchBox">
-          <input type="text" placeholder="Search.." />
-          <div className="search">
-            <img src= "https://firebasestorage.googleapis.com/v0/b/printerest-clone-773aa.appspot.com/o/right-arrow-symbol%20(1).png?alt=media&token=b2c60ed8-2462-48df-b5d7-610cde874f91"
-            alt="search" />
-          </div>
-        </div>
+        <SearchBar
+          searchQuery={searchQuery}
+          handleSearchChange={handleSearchChange}
+        />
+        
         <div className="mainContainer">
           {
-            Data && Data.map((data) => 
+            filteredData && filteredData.map((data) => 
               <Pin 
                 key={data.id} 
                 pinSize={data.size}
