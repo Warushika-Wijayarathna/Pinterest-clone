@@ -10,9 +10,9 @@ const Data = [
     {
       id: 2,
       imgSrc:
-        "https://cdn.pixabay.com/photo/2024/07/02/06/19/rain-8866774_1280.png",
-      name: "Rain",
-      link: "https://pixabay.com/illustrations/rain-raining-weather-umbrella-draw-8866774/",
+        "https://cdn.pixabay.com/photo/2023/11/01/11/15/cable-car-8357178_1280.jpg",
+      name: "Cable Car",
+      link: "https://pixabay.com/photos/cable-car-dare-rope-fall-mountains-8357178/",
       size: "medium",
     },
     {
