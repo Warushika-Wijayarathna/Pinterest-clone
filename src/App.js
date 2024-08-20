@@ -70,15 +70,24 @@ function App() {
           handleSearchChange={handleSearchChange}
         />
         <div className="mainContainer">
-          {
-            filteredData && filteredData.map((data) => 
+        {filteredData.length > 0 ? (
+            filteredData.map((data) => 
               <Pin 
                 key={data.id} 
                 pinSize={data.size}
                 imgSrc={data.imgSrc}
                 name={data.name}
                 link={data.link}
-                />
+              />
+            )
+          ) : (
+            <p className="not-found">No items found
+            <br/>
+            <br/>
+            <br/>
+              <img src="https://firebasestorage.googleapis.com/v0/b/printerest-clone-773aa.appspot.com/o/Untitled%20design%20(79).png?alt=media&token=1a474902-ea0f-499f-840d-261b33911ed7"/>
+            </p>  
+            
           )}
         </div>
       </main>
